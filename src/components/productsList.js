@@ -49,7 +49,7 @@ export default class productsList extends Component {
                             <tbody>
                                 {products && products.map(product =>
                                     <tr key={product.id}>
-                                        <td><img src={product.barcode} alt="Product barcode"/></td>
+                                        <td>{product.barcode}</td>
                                         <td>{product.product_name}</td>
                                         <td><img src={product.image} alt="Product img"/></td>
                                         <td>{product.description}</td>
