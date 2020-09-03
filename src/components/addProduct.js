@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
-import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -19,8 +20,9 @@ class addProduct extends Component {
             values: [],
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInputChanges = this.handleInputChanges.bind(this);
         this.handleChangeDate = this.handleChangeDate.bind(this);
-
+        this.handleChangeImage = this.handleChangeImage.bind(this);
     }
 
     handleSubmit(e) {
@@ -32,12 +34,13 @@ class addProduct extends Component {
             description: this.state.description,
             sell_price: this.state.sell_price,
             produce_date: this.state.produce_date,
+            status: this.state.status,
         }
         this.setState({values: [...this.state.values, formData]})
-        axios.post(`http://localhost:5000/customers`, formData).then(data => [
+        axios.post(`http://localhost:5000/products`, formData).then(data => [
                 setTimeout(() => {
                     this.props.history.push('/');
-                }, 1500)
+                }, 1000)
             ]);
     }
 
@@ -65,27 +68,33 @@ class addProduct extends Component {
             <div>
                 <div className={"col-md-12 form-wrapper mt-3 border"}>
                     <h2 className={"mt-1"}> Create Product </h2>
-                    <form id="create-post-form" onSubmit={this.handleSubmit} noValidate={true}>
-                        <div className="form-group col-md-12">
+                    <form id="create-post-form" style={{marginTop: "15px"}} onSubmit={this.handleSubmit} noValidate={true}>
+                        <div className="input-group col-md-12">
                             <label htmlFor="barcode" style={{marginRight: "20px"}}>Barcode</label>
-                            <input type="file" id="barcode" onChange={(e) => this.handleChangeImage(e)} name="barcode" alt="Product barcode"></input>
-                            {this.state.barcode?
-                                <img src={this.state.barcode} alt="barcode"/>
-                                : null
-                            }
+                            <div className="custom-file" style={{transform: "translateY(-6px)"}}>
+                                <input type="file" className="custom-file-input" id="barcode" onChange={(e) => this.handleChangeImage(e)} name="barcode" alt="Product barcode" />
+                                <label className="custom-file-label" htmlFor="barcode">Choose file</label>
+                            </div>
                         </div>
+                        {this.state.barcode?
+                            <img src={this.state.barcode} alt="barcode"/>
+                            : null
+                        }
                         <div className="form-group col-md-12">
                             <label htmlFor="product_name">Product name</label>
                             <input type="text" id="product_name" onChange={(e) => this.handleInputChanges(e)} name="product_name" className="form-control" placeholder="Enter product's name" />
                         </div>
-                        <div className="form-group col-md-12">
-                            <label htmlFor="image" style={{marginRight: "20px"}}> Image </label>
-                            <input type="file" id="image" onChange={(e) => this.handleChangeImage(e)} name="image" alt="Product image"></input>
-                            {this.state.image ?
-                                <img src={this.state.image} alt="product"/>
-                                : null
-                            }
+                        <div className="input-group col-md-12">
+                            <label htmlFor="image" style={{marginRight: "20px"}}>Image</label>
+                            <div className="custom-file" style={{transform: "translateY(-6px)"}}>
+                                <input type="file" className="custom-file-input" id="image" onChange={(e) => this.handleChangeImage(e)} name="image" alt="Product image" />
+                                <label className="custom-file-label" htmlFor="image">Choose file</label>
+                            </div>
                         </div>
+                        {this.state.image?
+                            <img src={this.state.image} alt="product"/>
+                            : null
+                        }
                         <div className="form-group col-md-12">
                             <label htmlFor="description"> Description </label>
                             <input type="text" id="description" onChange={(e) => this.handleInputChanges(e)} name="description" className="form-control" placeholder="Enter product's description" />
@@ -101,16 +110,46 @@ class addProduct extends Component {
                                 onChange={this.handleChangeDate}
                             />
                         </div>
+                        <div className="input-group mb-3 col-md-12">
+                            <div className="input-group-prepend">
+                                <label className="input-group-text" htmlFor="status">Status</label>
+                            </div>
+                            <select className="custom-select" id="status" name="status" onChange={(e) => this.handleInputChanges(e)}>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>                        
+                            </select>
+                        </div>
                         <div className="form-group col-md-4 pull-right">
                             <button className="btn btn-success" type="submit">
                                 Create Customer
                             </button>         
                         </div>
+                        {/* <div className="input-group col-md-10">
+                            <label htmlFor="barcode" style={{marginRight: "20px"}}>Barcode</label>
+                            <div className="custom-file" style={{transform: "translateY(-6px)"}}>
+                                <input type="file" className="custom-file-input" id="barcode" onChange={(e) => this.handleChangeImage(e)} name="barcode" alt="Product barcode" />
+                                <label className="custom-file-label" htmlFor="barcode">Choose file</label>
+                            </div>
+                            {this.state.barcode?
+                                <img src={this.state.barcode} alt="barcode"/>
+                                : null
+                            }
+                        </div> */}
                     </form>
                 </div>
             </div>
         )
     }
 }
+
+addProduct.propTypes = {
+    barcode: PropTypes.string,
+    product_name: PropTypes.string,
+    image: PropTypes.string,
+    description: PropTypes.string,
+    sell_price: PropTypes.number,
+    produce_date: PropTypes.instanceOf(Date),
+    status: PropTypes.string
+};
 
 export default withRouter(addProduct)
