@@ -19,7 +19,7 @@ class addProduct extends Component {
             status: "",
             values: [],
         }
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);  
         this.handleInputChanges = this.handleInputChanges.bind(this);
         this.handleChangeDate = this.handleChangeDate.bind(this);
         this.handleChangeImage = this.handleChangeImage.bind(this);
@@ -66,8 +66,8 @@ class addProduct extends Component {
     render() {
         return (
             <div>
-                <div className={"col-md-12 form-wrapper mt-3 border"}>
-                    <h2 className={"mt-1"}> Create Product </h2>
+                <div className="col-md-12 form-wrapper mt-3 border">
+                    <h2 className="mt-1"> Create Product </h2>
                     <form id="create-post-form" style={{marginTop: "15px"}} onSubmit={this.handleSubmit} noValidate={true}>
                         <div className="input-group col-md-12">
                             <label htmlFor="barcode" style={{marginRight: "20px"}}>Barcode</label>
@@ -115,13 +115,13 @@ class addProduct extends Component {
                                 <label className="input-group-text" htmlFor="status">Status</label>
                             </div>
                             <select className="custom-select" id="status" name="status" onChange={(e) => this.handleInputChanges(e)}>
-                                <option value="active">Active</option>
-                                <option value="inactive">Inactive</option>                        
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>                        
                             </select>
                         </div>
                         <div className="form-group col-md-4 pull-right">
                             <button className="btn btn-success" type="submit">
-                                Create Customer
+                                Create Product
                             </button>         
                         </div>
                         {/* <div className="input-group col-md-10">

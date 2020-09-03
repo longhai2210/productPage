@@ -8,7 +8,7 @@
       "description": "Sour & spicy instant noodle",
       "sell_price": 100,
       "produce_date": "1-1-2019",
-      "status": "active"
+      "status": "Active"
     },
     {
       "id": 2,
@@ -18,7 +18,7 @@
       "description": "Cleanse your body",
       "sell_price": 140,
       "produce_date": "15-5-2019",
-      "status": "active"
+      "status": "Active"
     },
     {
       "id": 3,
@@ -28,64 +28,7 @@
       "description": "As tasty as homemade yogurt",
       "sell_price": 110,
       "produce_date": "1-10-2018",
-      "status": "inactive"
-    },
-    {
-      "barcode": "blob:http://localhost:3000/597ac6d8-c830-4eac-8b28-ca9b91e7d5af",
-      "product_name": "milk",
-      "image": "blob:http://localhost:3000/905cf0be-95a2-4a4c-bbf8-d859f129c0f9",
-      "description": "nothing",
-      "sell_price": "1124",
-      "produce_date": "2020-09-06T01:46:02.000Z",
-      "id": 4
-    },
-    {
-      "barcode": "blob:http://localhost:3000/e30d8e68-6823-4c3c-ac27-b99f6f04ac0f",
-      "product_name": "milkshake",
-      "image": "blob:http://localhost:3000/6adcd4e2-9c30-4248-bdb0-fd884a101538",
-      "description": "with lots of milk",
-      "sell_price": "9000",
-      "produce_date": "2020-07-14T01:56:40.000Z",
-      "id": 5
-    },
-    {
-      "barcode": "blob:http://localhost:3000/54a5eef9-86d0-4c08-97e1-a80d8ea54fab",
-      "product_name": "spring rolls",
-      "image": "blob:http://localhost:3000/31dd1bae-8b6a-45f9-8807-b148ccc863f5",
-      "description": "with shrimps and vegs in the fillings",
-      "sell_price": "1124",
-      "produce_date": "2020-09-01T02:03:08.000Z",
-      "id": 6
-    },
-    {
-      "barcode": "blob:http://localhost:3000/9a50b510-a885-4205-8d8c-6cd96a76860b",
-      "product_name": "spring rolls",
-      "image": "blob:http://localhost:3000/9b4c08fb-f0c5-4364-952d-27010f7569a6",
-      "description": "with shrimps and vegs in the fillings",
-      "sell_price": "",
-      "produce_date": "2020-08-31T02:32:59.000Z",
-      "status": "",
-      "id": 7
-    },
-    {
-      "barcode": "",
-      "product_name": "spring rolls",
-      "image": "",
-      "description": "with shrimps and vegs in the fillings",
-      "sell_price": "1214",
-      "produce_date": "2020-08-31T02:35:38.000Z",
-      "status": "",
-      "id": 8
-    },
-    {
-      "barcode": "blob:http://localhost:3000/6f6b5771-f043-4c8e-bd24-b5aab301cb5e",
-      "product_name": "bread",
-      "image": "blob:http://localhost:3000/17ba8f63-ee0a-4c1f-b43d-02c8ff4641d3",
-      "description": "organic",
-      "sell_price": "124",
-      "produce_date": "2020-08-31T02:38:07.000Z",
-      "status": "inactive",
-      "id": 9
+      "status": "Inactive"
     }
   ]
 }

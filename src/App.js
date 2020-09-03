@@ -3,6 +3,7 @@ import './App.css';
 import { Switch, Route, withRouter, RouteComponentProps, Link } from 'react-router-dom';
 import productsList from './components/productsList';
 import addProduct from './components/addProduct';
+import editProduct from './components/editProduct';
 
 function App() {
   return (
@@ -13,13 +14,14 @@ function App() {
             <Link to={'/'}> Home </Link>
           </li>
           <li>
-            <Link to={'/create'}> Create Customer </Link>
+            <Link to={'/create'}> Create  </Link>
           </li>
         </ul>
       </nav>
       <Switch>
         <Route path={'/'} exact component={productsList} />
         <Route path={'/create'} exact component={addProduct} />
+        <Route path={'/edit/:id'} exact component={editProduct} />
       </Switch>
     </div>
   );
