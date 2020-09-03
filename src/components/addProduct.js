@@ -52,6 +52,9 @@ class addProduct extends Component {
     }
     
     handleChangeDate = date => {
+        let dateArray = date.split("/-|T/");
+        console.log(dateArray);
+        let newDate;
         this.setState({
             produce_date: date
         });
@@ -92,7 +95,7 @@ class addProduct extends Component {
                                         </div>  
                                         <div class='w-full md:w-full px-3 mb-6'>
                                             <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-text-1'>Sell Price</label>
-                                            <input id="sell_price" onChange={(e) => this.handleInputChanges(e)} name="sell_price" class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' id='grid-text-1' type='text' placeholder='Enter product sell price'  required/>
+                                            <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' id='grid-text-1' type='text' placeholder='Enter product sell price'  required/>
                                         </div>
                                         <div className="w-full md:w-full px-3 mb-6">
                                         <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >Produce date</label>
