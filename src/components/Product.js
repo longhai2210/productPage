@@ -2,6 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Product = (props) => {
+    const formatDate = (date) => {
+        let dateArray = date.toString().split('-').join(',').split('T').join(',').split(','); 
+        let newDate = dateArray[2] +  "-" + dateArray[1] + "-" + dateArray[0];
+        return newDate;
+    }
+
     return (
         <table className="border-collapse w-full">
                     <thead>
@@ -36,7 +42,8 @@ const Product = (props) => {
                                 {product.sell_price}
                             </td>
                             <td className="w-full lg:w-auto p-3 text-gray-800  border border-b text-center block lg:table-cell relative lg:static">
-                                {product.produce_date}
+                                
+                                {formatDate(product.produce_date)}
                             </td>
                             <td className="w-full lg:w-auto p-3 text-gray-800 border border-b text-center block lg:table-cell relative lg:static">
                                 {product.status === "Active"?

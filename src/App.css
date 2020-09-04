@@ -45,5 +45,7 @@ li>ul                 { transform: translatex(100%) scale(0) }
 
   .group:hover .group-hover\:scale-100 { transform: scale(1) }
   .group:hover .group-hover\:-rotate-90 { transform: rotate(-90deg) }
+  .status:hover .status-hover\:-rotate-90 { transform: rotate(-90deg) }
+  .rotate-180 { transform: rotate(180deg) }
   .scale-0 { transform: scale(0) }
   .min-w-32 { min-width: 8rem }
