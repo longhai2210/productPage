@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import "react-datepicker/dist/react-datepicker.css";
 
-class addProduct extends Component {
+class AddProduct extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -91,7 +91,7 @@ class addProduct extends Component {
                                         </div>
                                         <div class='w-full md:w-full px-3 mb-6'>
                                             <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >Description</label>
-                                            <textarea id="description" onChange={(e) => this.handleInputChanges(e)} name="description" class='bg-gray-100 rounded-md border leading-normal resize-none w-full h-20 py-2 px-3 shadow-inner border border-gray-400 font-medium placeholder-gray-500 focus:outline-none focus:bg-white' placeholder="Enter product description" required></textarea>
+                                            <textarea id="description" onChange={(e) => this.handleInputChanges(e)} name="description" class='bg-gray-100 rounded-md leading-normal resize-none w-full h-20 py-2 px-3 shadow-inner border border-gray-400 font-medium placeholder-gray-500 focus:outline-none focus:bg-white' placeholder="Enter product description" required></textarea>
                                         </div>  
                                         <div class='w-full md:w-full px-3 mb-6'>
                                             <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-text-1'>Sell Price</label>
@@ -129,7 +129,7 @@ class addProduct extends Component {
     }
 }
 
-addProduct.propTypes = {
+AddProduct.propTypes = {
     barcode: PropTypes.string,
     product_name: PropTypes.string,
     image: PropTypes.string,
@@ -139,4 +139,4 @@ addProduct.propTypes = {
     status: PropTypes.string
 };
 
-export default withRouter(addProduct)
+export default withRouter(AddProduct)
