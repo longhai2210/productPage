@@ -2,9 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Product = (props) => {
-    const formatDate = (date) => {
-        let dateArray = date.toString().split('-').join(',').split('T').join(',').split(','); 
-        let newDate = dateArray[2] +  "-" + dateArray[1] + "-" + dateArray[0];
+    const calculateDate = (date) => {
+        let dateArray = date.toString().split('-').join(',').split('T').join(',').split(',');
+        let newDate;
+        let newMonth = parseInt(dateArray[1]);
+        let newYear = parseInt(dateArray[0])
+        let newDay = parseInt(dateArray[2],10) + 1;
+        if (newDay > 31) {
+            newMonth += 1;
+            newDay = 1;
+            if (newMonth > 12) {
+                newYear += 1;
+                newMonth = 1;
+                newDate = newMonth.toString + "-" + newDay.toString() + "-" + newYear.toString();
+            }
+            newDate = newMonth.toString + "-" + newDay.toString() + "-" + newYear.toString();
+        }
+        newDate = newMonth.toString() +  "-" + newDay.toString() + "-" + newYear.toString();
+        console.log(newDate);
         return newDate;
     }
 
@@ -43,7 +58,7 @@ const Product = (props) => {
                             </td>
                             <td className="w-full lg:w-auto p-3 text-gray-800  border border-b text-center block lg:table-cell relative lg:static">
                              
-                                {formatDate(product.produce_date)}
+                                {calculateDate(product.produce_date)}
                             </td>
                             <td className="w-full lg:w-auto p-3 text-gray-800 border border-b text-center block lg:table-cell relative lg:static">
                                 {product.status === "Active"?
