@@ -42,7 +42,7 @@ const Product = (props) => {
                                 {product.sell_price}
                             </td>
                             <td className="w-full lg:w-auto p-3 text-gray-800  border border-b text-center block lg:table-cell relative lg:static">
-                                
+                             
                                 {formatDate(product.produce_date)}
                             </td>
                             <td className="w-full lg:w-auto p-3 text-gray-800 border border-b text-center block lg:table-cell relative lg:static">
