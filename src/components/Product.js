@@ -18,8 +18,7 @@ const Product = (props) => {
             }
             newDate = newMonth.toString + "-" + newDay.toString() + "-" + newYear.toString();
         }
-        newDate = newMonth.toString() +  "-" + newDay.toString() + "-" + newYear.toString();
-        console.log(newDate);
+        newDate = newMonth.toString() +  "-" + newDay.toString() + "-" + newYear.toString();    
         return newDate;
     }
 
